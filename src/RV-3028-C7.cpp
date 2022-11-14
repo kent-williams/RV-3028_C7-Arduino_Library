@@ -229,7 +229,7 @@ char* RV3028::stringDateUSA()
 char*  RV3028::stringDate()
 {
 	static char date[11]; //Max of dd/mm/yyyy with \0 terminator
-	sprintf(date, "%02hhu/%02hhu/20%02hhu", BCDtoDEC(_time[TIME_DATE]), BCDtoDEC(_time[TIME_MONTH]), BCDtoDEC(_time[TIME_YEAR]));
+	sprintf(date, "%02u/%02u/20%02u", BCDtoDEC(_time[TIME_DATE]), BCDtoDEC(_time[TIME_MONTH]), BCDtoDEC(_time[TIME_YEAR]));
 	return(date);
 }
 
@@ -244,10 +244,10 @@ char* RV3028::stringTime()
 		char half = 'A';
 		if (isPM()) half = 'P';
 
-		sprintf(time, "%02hhu:%02hhu:%02hhu%cM", BCDtoDEC(_time[TIME_HOURS]), BCDtoDEC(_time[TIME_MINUTES]), BCDtoDEC(_time[TIME_SECONDS]), half);
+		sprintf(time, "%02u:%02u:%02u%cM", BCDtoDEC(_time[TIME_HOURS]), BCDtoDEC(_time[TIME_MINUTES]), BCDtoDEC(_time[TIME_SECONDS]), half);
 	}
 	else
-		sprintf(time, "%02hhu:%02hhu:%02hhu", BCDtoDEC(_time[TIME_HOURS]), BCDtoDEC(_time[TIME_MINUTES]), BCDtoDEC(_time[TIME_SECONDS]));
+		sprintf(time, "%02u:%02u:%02u", BCDtoDEC(_time[TIME_HOURS]), BCDtoDEC(_time[TIME_MINUTES]), BCDtoDEC(_time[TIME_SECONDS]));
 
 	return(time);
 }
